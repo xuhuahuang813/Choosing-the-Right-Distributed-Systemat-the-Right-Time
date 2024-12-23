@@ -62,9 +62,11 @@ Ray 的灵活性和易用性使其在处理实时性强、任务动态变化的�
 
 ### ApplyBatch
 
+ApplyBatch在每个迷你评论批次上运行 Scikit-learn HashingVectorizer，并返回哈希特征的精简稀疏矩阵。
+
 #### 整体实验结果
 
-![apply_all](./pics/apply_all.png)
+<img src="./pics/apply_all.png" alt="apply_all" style="zoom: 67%;" />
 
 实验图表中，横轴（Data Size）表示输入数据的大小（任务规模），从 40,000 到 640,000 逐步增加。纵轴（Runtime）表示运行时间，单位为秒，采用对数刻度（Log Scale），以便清晰展示不同方法之间的性能差异。对比的五种方法为：
 
@@ -80,7 +82,7 @@ Ray 的灵活性和易用性使其在处理实时性强、任务动态变化的�
 
 #### Spark可扩展性和内存管理能力
 
-![apply_all](./pics/apply_spark.jpg)
+<img src="./pics/apply_spark.jpg" alt="apply_all" style="zoom:67%;" />
 
 实验用来评估Spark在处理 ApplyBatch 工作负载时的性能表现，主要关注其扩展性（scalability）和内存管理能力。通过设计不同集群配置（1 节点、2 节点、3 节点）的实验，对任务规模从 40,000 到 640,000 的批处理任务进行测试，探索 Spark 在有限资源条件下的适用性及其在处理大规模任务时的性能瓶颈。
 
@@ -94,7 +96,7 @@ Ray 的灵活性和易用性使其在处理实时性强、任务动态变化的�
 
 #### Ray可扩展性和内存管理能力
 
-![apply_all](./pics/apply_ray.jpg)
+<img src="./pics/apply_ray.jpg" alt="apply_all" style="zoom:67%;" />
 
 实验用来评估Ray在处理 ApplyBatch 工作负载时的性能表现，主要关注其扩展性（scalability）和内存管理能力。实验运行在伪分布式和小规模集群环境中，每个节点包含 8 个 CPU 和 8GB的内存。其余配置同Spark可扩展性和内存管理实验。
 
@@ -104,7 +106,7 @@ Ray 的灵活性和易用性使其在处理实时性强、任务动态变化的�
 
 #### Spark和Ray对比分析
 
-![apply_all](./pics/apply_spark_ray.jpg)
+<img src="./pics/apply_spark_ray.jpg" alt="apply_all" style="zoom:67%;" />
 
 1. **扩展性：** Ray 的扩展性优于 Spark，能够更高效地利用多节点资源来提升性能，特别是在处理大规模任务时表现更优。
 2. **多节点性能：** 在小任务量下，单节点与多节点的性能差距较小，而在中等和大任务量下，多节点配置明显优于单节点，展现了分布式计算的优势。
